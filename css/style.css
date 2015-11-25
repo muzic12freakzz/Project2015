@@ -1,0 +1,14 @@
+#previous, #future{
+	height:100vh;
+	width:auto;
+	margin:0 auto;
+	text-align:center;
+}
+
+#previous{
+	background-color:red;
+}
+
+#future{
+	background-color:green;
+}
