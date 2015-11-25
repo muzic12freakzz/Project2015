@@ -34,6 +34,7 @@ body {
 	text-align: center;
 	font-size: 14px;
 	font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+	height:100%;
 }
 
 #calendar {
@@ -42,5 +43,12 @@ body {
 }
 
 .content{
-	padding-top:75px;
+	padding-top:120px;
+	min-height:100vh;
+}
+
+#bottomSection{
+	position:absolute;
+	bottom: 70px;
+    width: 100%;
 }
