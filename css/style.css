@@ -12,3 +12,21 @@
 #future{
 	background-color:green;
 }
+
+
+	.col-md-4{
+	float:left;
+	
+	background-color:grey;
+	}
+
+	.col-md-8{
+	float:right;
+	}
+	
+#image{
+	padding-left:10px;
+	padding-right:10px;
+	max-width:100%;
+	height:auto;
+}
