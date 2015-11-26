@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+   		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    	<title>
+			Helping Hands Volunteering
+		</title>
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
+	</head>
+	<body>
+		<nav class="navbar navbar-default navbar-fixed-top">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a class="navbar-brand" href="index.html">Helping Hands</a>
+	        </div>
+	        <div id="navbar" class="navbar-collapse collapse">
+	          <ul class="nav navbar-nav">
+	            <li><a href="index.html">Home</a></li>
+	            <li><a href="about.html">About Us</a></li>
+	            <li class="dropdown">
+	              <a href="events.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Events <span class="caret"></span></a>
+	              <ul class="dropdown-menu">
+	                <li><a href="events.html#previous">Events Calendar</a></li>
+	                <li><a href="events.html#future">Future Events</a></li>
+	              </ul>
+	            </li>
+	            <li class="active"><a href="volunteer.html">VOLUNTEER</a></li>
+	            
+	          </ul>
+	        </div><!--/.nav-collapse -->
+	      </div>
+	    </nav>
+		
+	<div id="body">
+		<div class="content">
+			<form class="form-horizontal" method="post">
+			  <div class="form-group">
+		    <label class="control-label col-sm-2" for="name">Name:</label>
+		    <div class="col-sm-8">
+		      <input type="text" class="form-control" id="name" placeholder="Enter name">
+		    </div>
+		 	 </div>
+
+		  	<div class="form-group">
+			    <label class="control-label col-sm-2" for="email">Email:</label>
+			    <div class="col-sm-8">
+			      <input type="email" class="form-control" id="email" placeholder="Enter email">
+			    </div>
+			  </div>
+
+
+				    <div class="form-group" id="multiselectForm">
+				        <label class="col-sm-2 control-label">Gender:</label>
+				        <div class="col-sm-8">
+				            <select class="form-control" name="gender">
+				                <option value="male">Male</option>
+				                <option value="female">Female</option>
+				                <option value="other">Other</option>
+				            </select>
+				        </div>
+				    </div>
+
+				    <div class="form-group">
+				        <label class="col-sm-2 control-label">Events I'm interested in: <br />(Please Ctrl + Click for multiple events)</label>
+				        <div class="col-sm-8">
+				            <select class="form-control" name="browsers" multiple>
+				                <option value="chrome">Fundraisers</option>
+				                <option value="firefox">Spreading Awareness</option>
+				                <option value="ie">Equality</option>
+				                <option value="safari">Poverty</option>
+				                <option value="opera">Cleanliness Drives</option>
+				                <option value="other">Other</option>
+				            </select>
+				        </div>
+				    </div>
+
+			
+			  <div class="form-group">
+		    <label class="control-label col-sm-2" for="comment">Comments:</label>
+		    <div class="col-sm-8">
+		      <textarea class="form-control" id="comment" placeholder="Enter comment"></textarea>
+		    </div>
+		 	 </div>
+		  
+		  <div id="bottomSection">
+		  	<div class="form-group"> 
+		    <div class="col-sm-offset-2 col-sm-10">
+		      <div class="checkbox">
+		        <label><input type="checkbox"> I would like updates on all future events</label>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="form-group"> 
+		    <div class="col-sm-offset-2 col-sm-10">
+		      <input class="btn btn-default" type="submit" value="Submit" onclick="alert('Your application has been sent. We shall report back to you shortly!');" />
+		     
+		      <button type="reset" class="btn btn-default">Reset</button>
+		    </div>
+		  </div>
+		</div>
+		</form>
+		</div>
+	</div>
+
+ <!-- FOOTER -->
+			  <div id="footer"><!-- FOOTER -->
+			  <footer>
+				<p class="pull-right"><a href="#">Back to top</a></p>
+				<p>© 2015 Helping Hands, Inc · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+			  </footer>
+
+		</div>
+
+
+
+
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	    <!-- Include all compiled plugins (below), or include individual files as needed -->
+	    <script src="../bootstrap/js/bootstrap.min.js"></script>
+	    <script>
+			$(document).ready(function() {
+			// You don't need to care about onDropdownShow, onDropdownHide options
+			// and adjustByScrollHeight(), adjustByHeight() methods
+			// They are for this specific demo
+			$('#multiselectForm')
+				.formValidation({
+					framework: 'bootstrap',
+					// Exclude only disabled fields
+					// The invisible fields set by Bootstrap Multiselect must be validated
+					excluded: ':disabled',
+					icon: {
+						valid: 'glyphicon glyphicon-ok',
+						invalid: 'glyphicon glyphicon-remove',
+						validating: 'glyphicon glyphicon-refresh'
+					},
+					fields: {
+						gender: {
+							validators: {
+								notEmpty: {
+									message: 'The gender is required'
+								}
+							}
+						},
+						browsers: {
+							validators: {
+								callback: {
+									message: 'Please choose 2-3 browsers you use for developing',
+									callback: function(value, validator, $field) {
+										// Get the selected options
+										var options = validator.getFieldElements('browsers').val();
+										return (options != null
+												&& options.length >= 2 && options.length <= 3);
+									}
+								}
+							}
+						}
+					}
+				})
+				.find('[name="gender"]')
+					.multiselect({
+						onChange: function(element, checked) {
+							$('#multiselectForm').formValidation('revalidateField', 'gender');
+
+							adjustByScrollHeight();
+						},
+						onDropdownShown: function(e) {
+							adjustByScrollHeight();
+						},
+						onDropdownHidden: function(e) {
+							adjustByHeight();
+						}
+					})
+					.end()
+				.find('[name="browsers"]')
+					.multiselect({
+						enableFiltering: true,
+						includeSelectAllOption: true,
+						// Re-validate the multiselect field when it is changed
+						onChange: function(element, checked) {
+							$('#multiselectForm').formValidation('revalidateField', 'browsers');
+
+							adjustByScrollHeight();
+						},
+						onDropdownShown: function(e) {
+							adjustByScrollHeight();
+						},
+						onDropdownHidden: function(e) {
+							adjustByHeight();
+						}
+					})
+					.end();
+
+			// You don't need to care about these methods
+			function adjustByHeight() {
+				var $body   = $('body'),
+					$iframe = $body.data('iframe.fv');
+				if ($iframe) {
+					// Adjust the height of iframe when hiding the picker
+					$iframe.height($body.height());
+				}
+			}
+
+			function adjustByScrollHeight() {
+				var $body   = $('body'),
+					$iframe = $body.data('iframe.fv');
+				if ($iframe) {
+					// Adjust the height of iframe when showing the picker
+					$iframe.height($body.get(0).scrollHeight);
+				}
+			}
+		});
+
+				
+		    
+	    </script>
+	</body>
+</html>
