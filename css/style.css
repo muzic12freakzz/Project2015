@@ -65,6 +65,7 @@ body,h1,h2 {
 }
 
 
+/*Bootply.com overlay for upcoming events*/
 .overlay:hover {
 opacity: 1;
 cursor: pointer;
@@ -91,27 +92,28 @@ html, body {height: 100%;}
 
 #body {
   overflow:auto;
-  padding-bottom: 180px; /* must be same height as the footer */
+  padding-bottom: 180px; 
   padding-top:75px;
   
 }
 
 #footer {
   position: relative;
-  margin-top: -180px; /* negative value of footer height */
+  margin-top: -180px; 
   height: 180px;
   clear:both;
 } 
 
-/*Opera Fix thanks to Maleika (Kohoutec)*/
+
 body:before {
   content:"";
   height:100%;
   float:left;
   width:0;
-  margin-top:-32767px;/* thank you Erik J - negate effect of float*/
+  margin-top:-32767px;
 }
 
+/*Google Calendar iframe style*/
 iframe{
 	border-width:0;
 	width:100%;
